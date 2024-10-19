@@ -27,10 +27,10 @@ Let's take a closer look at the different elements that compose the NEAR account
 
 
 #### [Account ID](account-id.md)
-NEAR implements two types of accounts IDs: **named accounts** such as `alice.near`, which are simple to remember and share, and the classic alphanumeric IDs (`fb9243ce...`) that other chains also implement.
+NEAR implements two types of account IDs: **named accounts** such as `alice.near`, which are simple to remember and share, and the classic alphanumeric IDs (`fb9243ce...`) that other chains also implement.
 
 #### [Permissions Through Access Keys](access-keys.md)
-NEAR accounts can have multiple [keys](access-keys.md), each with their own set of permissions. This allows to easily swap keys if one gets compromised, and to use keys as authorization tokens for third-parties.
+NEAR accounts can have multiple [keys](access-keys.md), each with its own set of permissions. This allows one to easily swap keys if one gets compromised, and to use keys as authorization tokens for third parties.
 
 #### [Simple to Develop Smart Contracts](../../2.build/2.smart-contracts/what-is.md)
 NEAR accounts can optionally hold a simple program, known as a [smart contract](../../2.build/2.smart-contracts/what-is.md). In NEAR, developers can create smart contracts using languages such as Javascript or Rust. 
