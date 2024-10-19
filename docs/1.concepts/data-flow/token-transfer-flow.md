@@ -34,7 +34,7 @@ It means that literally every Transaction includes a refund.
 
 :::
 
-OK, this should be enough for introduction, now let's move on to examples.
+OK, this should be enough for the introduction, now let's move on to examples.
 
 
 ## Token transfer between accounts found in different shards
@@ -54,7 +54,7 @@ During the above process **alice.near**, the sender, was charged a fee (gas). Th
 
 So, in our case the receiver is **bob.near** and that account belongs to a different [Shard](/build/data-infrastructure/lake-data-structures/shard) that's why the [Receipt](/build/data-infrastructure/lake-data-structures/receipt) moves to the receiver's Shard and is put in the execution queue.
 
-In our example the Receipt is executed in the very next Block.
+In our example, the Receipt is executed in the very next Block.
 
 ![The Receipt is executed in the next Block](/docs/flow/04-send-nears-flow.png)
 
@@ -69,7 +69,7 @@ This is it. Tokens have been transferred from the account on one Shard to the ac
 
 ## Token transfer between accounts found on the same shard
 
-Let's have a look at the example where both accounts are on the same [Shard](/build/data-infrastructure/lake-data-structures/shard). The process is the same as in the previous example, except there are no Receipts moving from one Shard to another.
+Let's have a look at the example where both accounts are on the same [Shard](/build/data-infrastructure/lake-data-structures/shard). The process is the same as in the previous example, except no Receipts are moving from one Shard to another.
 
 A [Transaction](/build/data-infrastructure/lake-data-structures/transaction) signed by **alice.near** is sent to the network. It is immediately executed, [ExecutionOutcome](/build/data-infrastructure/lake-data-structures/execution-outcome) is the result of converting the transaction into a [Receipt](/build/data-infrastructure/lake-data-structures/receipt).
 
@@ -80,5 +80,5 @@ The Same rules apply to this Receipt, it is put into the execution queue and exe
 
 ![Complete scheme of Token transfer between the account from the same Shards](/docs/flow-token-transfer/02-same-shard-complete.png)
 
-This is it. You may wonder why the process is overcomplicated for the same Shard case. The answer is: **the same rules are always applied**. Also, this mechanism allows to build the NEAR Protocol data flow by only one set of rules, no matter how many Shards exist. Also, we avoid a lot of "ifs" and we don't have to keep in mind different corner cases because the process always follows the same rules.
+This is it. You may wonder why the process is overcomplicated for the same Shard case. The answer is: **the same rules are always applied**. Also, this mechanism allows us to build the NEAR Protocol data flow by only one set of rules, no matter how many Shards exist. Also, we avoid a lot of "ifs" and we don't have to keep in mind different corner cases because the process always follows the same rules.
 
