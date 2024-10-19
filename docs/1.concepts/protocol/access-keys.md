@@ -9,12 +9,12 @@ In all blockchains, users control their accounts by holding a `private key` (a s
 NEAR accounts present the **unique** feature of being able to hold multiple [Access Keys](https://en.wikipedia.org/wiki/Public-key_cryptography), each with its **own set of permissions**. We distinguish two types of Keys:
 
 1. `Full-Access Keys`: Have full control over the account, and should **never be shared**
-2. `Function-Call Keys`: Can sign calls to specific contract, and are **meant to be shared**
+2. `Function-Call Keys`: Can sign calls to specific contracts, and are **meant to be shared**
 
 ---
 
 ## Full-Access Keys {#full-access-keys}
-As the name suggests, `Full-Access` keys have full control of an account, meaning they can be used to sign [transactions](transactions.md) doing any action in your account's behalf:
+As the name suggests, `Full-Access` keys have full control of an account, meaning they can be used to sign [transactions](transactions.md) doing any action on your account's behalf:
 
 1. Transfer NEAR Ⓝ
 2. Delete your account or create sub-accounts of it
@@ -37,7 +37,7 @@ The **first** Full-Access Key of an account is added when the account is **creat
 2. `method_names` (Optional): The contract's **methods** the key allows to call. If omitted, all methods can be called
 3. `allowance` (Optional): The **amount of NEAR** allowed to be spent on [gas](gas.md). If omitted, the key can consume **unlimited** as gas
 
-Function-Call keys have the main purpose of being shared, so third-parties can make contract calls in your name. This is useful in [multiple scenarios as we will see below](#benefits-of-function-call-keys).
+Function-Call keys have the main purpose of being shared, so third parties can make contract calls in your name. This is useful in [multiple scenarios as we will see below](#benefits-of-function-call-keys).
 
 :::tip 
 `Function-Call` keys are secure to share, as they only permit calls to a specific contract and prohibit NEAR token transfers.
@@ -56,7 +56,7 @@ Imagine you are developing a game that records the user's score on a smart contr
 
 With NEAR, you can request the user to generate a `Function-Call` key for the game's contract and share it with the game. This way, the game can sign transactions in the user's name, eliminating gameplay interruptions.
 
-Sharing this key is safe for the user, because even in the case of somebody stealing it, they would only be able to call the score-keeping method, and nothing else.
+Sharing this key is safe for the user because even in the case of somebody stealing it, they would only be able to call the score-keeping method, and nothing else.
 
 <hr class="subsection" />
 
@@ -64,9 +64,9 @@ Sharing this key is safe for the user, because even in the case of somebody stea
 
 Another common use-case of `Function-Call` keys is to simplify the **onboarding** process for new users. It works as follows:
 
-First create a contract that has a method called `create_account`. This method should only be callable by the contract itself and, when executed, should create a new account and transfer some tokens to it.
+First, create a contract that has a method called `create_account`. This method should only be callable by the contract itself and, when executed, should create a new account and transfer some tokens to it.
 
-You can then create multiple `Function-Call` in the contract's account, that only allow to call `create_account`. Drop these keys to your friends, so they can call the method, and easily create an account with some tokens.
+You can then create multiple `Function-Call` in the contract's account, which only allows to call `create_account`. Drop these keys to your friends, so they can call the method, and easily create an account with some tokens.
 
 :::tip
 This is the basic principle behind [NEAR Drops](../../2.build/5.primitives/linkdrop.md), a way to distribute assets to a large number of users
